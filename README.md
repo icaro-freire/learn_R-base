@@ -11,7 +11,7 @@ A ideia desse repositório é disponibilizar o arquivo `.Rmd` para que possam ac
 
 ### Visualizando o repositório
 
-Em seu computador, ao clonar ou fazer o _download_ deste repositório, clique no arquivo `learn_R-base.Rproj`.
+Em seu computador, ao clonar ou fazer o _download_ deste repositório, clique no arquivo `learn_R-base.Rproj` e compile normalmente o arquivo `R-base.Rmd` (que já deve estar aberto).
 
 <pre>
 📦learn_R-base
