@@ -1,0 +1,12 @@
+name: R-base
+title: R-base
+username:
+account: icaro-freire
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3756728
+bundleId: 4317756
+url: https://icaro-freire.shinyapps.io/R-base/
+when: 1615233425.28227
+asMultiple: FALSE
+asStatic: FALSE
