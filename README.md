@@ -8,3 +8,17 @@ Ele está disponível no site:
 </p>
 
 A ideia desse repositório é disponibilizar o arquivo `.Rmd` para que possam acessar o tutorial, mesmo sem _internet_.
+
+### Visualizando o repositório
+
+Em seu computador, ao clonar ou fazer o _download_ deste repositório, clique no arquivo `learn_R-base.Rproj`.
+
+<pre>
+📦learn_R-base
+ ┣ 📂R-base
+ ┃ ┣ 📜R-base.html
+ ┃ ┗ 📜R-base.Rmd
+ ┣ 📜.gitignore
+ ┣ 📜learn_R-base.Rproj
+ ┗ 📜README.md
+ </pre>
