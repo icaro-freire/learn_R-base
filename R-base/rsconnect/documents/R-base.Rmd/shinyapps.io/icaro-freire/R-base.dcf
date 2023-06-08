@@ -5,8 +5,9 @@ account: icaro-freire
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3756728
-bundleId: 4335672
+bundleId: 7321586
 url: https://icaro-freire.shinyapps.io/R-base/
-when: 1615555645.69397
+when: 1686241056.48905
+lastSyncTime: 1686241056.48908
 asMultiple: FALSE
 asStatic: FALSE
