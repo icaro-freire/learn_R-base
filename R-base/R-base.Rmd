@@ -24,29 +24,31 @@ Por ser um *ambiente de programação*, fornece um espaço planejado e coerente 
 Esse foi um dos motivos para escolhê-lo como ferramenta útil à nossa disciplina; além de ser livre, claro.
 
 Ainda por ser uma *linguagem de programação*, poder ser estendido (implementado) por meio de **pacotes** (*packages*) que facilitam (e muito) nosso fluxo de trabalho nele.
-Um pacote é constituido de funções e objetos do `R`.
-Facilitam rotinas, para que não precisemos reperir um conjunto de códigos, geralmente extenso, em atividades rotineiras.
+Um pacote é constituido de funções e objetos do `R` que facilitam rotinas, ou seja, não precisamos repetir um conjunto de códigos, geralmente extenso, em atividades rotineiras.
 
 Na instalação do `R`, já vem disponíveis 7 (sete) pacotes:
-  - stats
-  - graphics
-  - grDevices
-  - utils
-  - datasets
-  - methods
-  - base
+
+- stats
+- graphics
+- grDevices
+- utils
+- datasets
+- methods
+- base
   
-Estes são carregados automaticamente.
+Estes, são carregados automaticamente.
 Os outros deverão ser instalados e carregados convenientemente (falaremos disso mais adiante, no curso).
+
+Neste texto, sempre que estiver escrito "`R` Base", estarei referindo-me ao conjutos de pacotes citados acima.
 
 ### Tidyverse: um conjunto de pacotes para análise de dados
 
 Um dos inúmeros pacotes implementados para o `R` é o [**tidyverse**](https://www.tidyverse.org/). 
-Este se destaca por ser um conjunto de outros pacotes amplamente usados para análise de dados, fornecendo uma uniformidade na escrita de comandos, bem como uma comunidade ativa em sua implementação.
+Este, destaca-se por ser um conjunto de outros pacotes amplamente usados para análise de dados, fornecendo uma uniformidade na escrita de comandos, bem como uma comunidade ativa em sua implementação.
 
 Como foi dito em nosso Plano de Curso, usaremos o `R` na perspectiva do *tidyverse*.
-Então, não será objetivo nosso um aprofundamento na linguagem `R` (que é algo muito maior e demandaria muito tempo).
-Apenas falaremos, brevemente, sobre aspectos essencias dessa linguagem que utilizaremos nos pacotes do *tidyverse*.
+Então, não será nosso objetivo um aprofundamento na linguagem `R` (que é algo muito maior e demandaria muito tempo).
+Apenas falaremos, brevemente, sobre aspectos essenciais, dessa linguagem, que utilizaremos nos pacotes do *tidyverse*.
 
 Foi para isso que esse tutorial foi planejado: aprenderemos alguns aspectos básicos da linguagem `R` que nos fornecerão instrumentos para desenvolvermos nossas análises com o *tidyverse*.
 
@@ -54,7 +56,7 @@ Vamos começar?
 
 ### Só mais um aviso ...
 
-No texto que se segue, haverá caixas de código onde você pode digitar o que se pede tranquilamente.
+No texto que se segue, haverá caixas de código onde você pode digitar o que se pede.
 Mas, para "rodar" o código, clique no botão `Run Code`.
 
 Além disso, caso queira voltar ao código original, clique `Start Over` (recomeçar).
@@ -64,7 +66,7 @@ Além disso, caso queira voltar ao código original, clique `Start Over` (recome
 O `R` pode ser usado como uma excelente calculadora!
 Sim! 
 Você pode *somar* (`+`), *subtrair* (`-`), *multiplicar* (`*`) e *dividir* (`/`)
-dois números reais, dentro do dominio dessas operações.
+dois números reais, dentro do domínio dessas operações.
 
 Por exemplo, no ambiente abaixo, digite `3 + 4` e dê "enter", em seguida, nessa mesma linha.
 
@@ -107,7 +109,7 @@ Mas, obviamente, "a" pode ser um *vetor*, uma *matriz*, uma *lista*, etc.
 
 Isso é útil para trabalharmos com grandes informações usando apenas um símbolo, ou nomenclatura adequada.
 
-Mas, vamos começar com coisas pequenas nesse tutorial, não?
+Mas, vamos começar com coisas pequenas nesse tutorial, ok?
 
 Se fizermos `a <- log(exp(1))`, `b <- 3^2` e `c <- -sqrt(100)`, ao somarmos
 `a + b + c` deve retornar o mesmo valor da solução do exercício anterior, a saber, zero. 
@@ -165,24 +167,24 @@ O `R` possui uma forma própria de relacionar esses dados e os separa em algumas
 - funções (*function*)
 
 Os dois destacados acima, serão o que mais utilizaremos.
-Para você saber o tido de dado no `R`, pode usar o comando `class()`.
+Para você saber o tipo de dado no `R`, pode usar o comando `class()`.
 
-Por exemplo, se eu atribuo à variável *x* o número $3$, podemos dizer que "*x* é do tipo numérico". Rode o código abaixo e veja.
+Por exemplo, se atribuímos à variável *x* o número $3$, podemos dizer que "*x* é do tipo numérico". Rode o código abaixo e veja.
 
 ```{r classe-numerico, exercise=TRUE, exercise.lines=3}
 x <- 3
 class(x)
 ```
 
-Isso se repetiria, se eu atribuisse à essa variável os valores $\sqrt2$, ou $3/4$, ou $0.45$, ou $-1.43$, etc.
+Isso se repetiria caso atribuíssemos à mesma variável, os valores $\sqrt2$, ou $3/4$, ou $0.45$, ou $-1.43$, etc.
 Talvez você esteja se perguntando: "Mas, '3' não seria 'inteiro'"?
 Bom, certamente '3' é um número inteiro, mas você precisa fazer essa distinção para o `R`.
-Para isso, basta colocar um "L" (maiúsculo) do lado do número que deseja drefenciar como inteiro.
+Para isso, basta colocar um "L" (maiúsculo) do lado do número que deseja direfenciar como inteiro.
 Essa diferenciação acontece por conta do processamento interno do `R`.
 Ele processa mais rapidamente números inteiros.
-Então, se você for trabalhar com dados grandes que possuam números inteiros é bom difetenciar.
+Então, se você for trabalhar com dados grandes que possuam números inteiros é bom diferenciar.
 Mas, esse não será o caso de nosso curso.
-Assim, se fizeres `x <- 3L`, a classe será *integer*.
+Mesmo assim, se fizermos `x <- 3L`, a classe será *integer*.
 Rode o código abaixo e veja a diferença.
 
 ```{r classe-inteiro, exercise=TRUE, exercise.lines=3}
@@ -196,7 +198,7 @@ Um dado do tipo *character* **sempre deve vir entre aspas**.
 Assim, se eu escrevo `x <- "3"`, a classe de $x$ não será numérica, mas um caractere.
 
 Para os *valores lógicos*, será sempre atribuido *TRUE* (Verdadeiro) ou *FALSE* (Falso) - sempre em maiúsculas!!
-Falaremos um pouco sobre algumas relações lógicas importantes para o curso depois, mas, por enquanto, relacione sempre como se fosse uma pergunta ... 
+Falaremos um pouco sobre algumas relações lógicas importantes para o curso, mas, por enquanto, relacione sempre como se fosse uma pergunta ... 
 Por exemplo, seria `3 < 2`? 
 Certamente sua resposta seria: "Não! Isso é Falso!".
 E é isso que o `R` retorna, veja:
@@ -228,7 +230,7 @@ Para resolver o exercício a seguir, use o bloco de códigos abaixo para testar 
 ```
 
 Um aluno pegou um [script](https://www.tecmundo.com.br/programacao/1185-o-que-e-script-.htm) de um repositório do GitHub e ficou em dúvida do tipo de dados que estavam envolvidos.
-Uma parte do *script* é dado abaixo
+Uma parte do *script* é exibido abaixo
 
 ```{r, echo=TRUE, eval=FALSE}
 dia_da_semana <- "segunda-feira"
@@ -264,7 +266,7 @@ Mas, vamos abordar três delas.
 Antes, porém, vejamos o que não se deve fazer:
 
 - **Começar com números**. Nunca começe um nome de variável com número, por exemplo `1dia`. Prefira: `dia1`;
-- **Espaços entre as variáveis**. Não deixe espaços entre as variáveis. Não é obrigatório, mas é uma boa prática de programação. Assim, não escreva `dia 01`, prefira `dia01`, embora essa última não seja mais adequada, pois poderíamos separar a "frase" do "número" com um *underline*, por exemplo: `dia_01`;
+- **Espaços entre as variáveis**. Não deixe espaços entre as variáveis. Não é obrigatório, mas é uma boa prática de programação. Assim, não escreva `dia 01`, prefira `dia01`, embora essa última não seja a mais adequada, pois poderíamos separar a "frase" do "número" com um *underline*, por exemplo: `dia_01`;
 - **Não use acentuação**. Não use acentuação nos nomes de variáveis. Esses programas são todos em língua inglesa, a qual não possui nossos caracteres de acentos, o que pode ocasionar erros de codificação em algumas máquinas. Então, não escreva `doação_total`, mas sim `doacao_total`;
 - **Não use maiúsculas no início do nome**. É uma boa prática não começar nomes de variáveis com letras maiúsculas. Então, evite `Teste_labotatorio`. Prefira: `teste_laboratorio`;
 - **Evite nomes longos**. Tente evitar nomes como `media_da_observacao_do_quinto_data_frame`. Ora, se seu *data frame* (falaremos sobre isso, mas por enquanto, pense na estruturação que seus dados se encontram, como uma tabela) é sobre as medições do laboratório, escreva `media_laboratorio`.
@@ -273,8 +275,7 @@ Feito essas considerações, alguns autores usam, basicamente, três formas de n
 
    (i)   Separando por *underline*. Essa é a forma que mais usarei nesse curso. É o caso, por exemplo, de `media_laboratorio`.
    (ii)  Separando por *camelCase*. Se sua varivável possui uma ou duas partes, pode usar uma letra maiúscula, na segunda palavra, que faça a distinção. Por exemplo: `mediaLaboratorio`
-   (iii) Separando por *ponto*. Por fim, você pode usar a mesma ideia do item (ii), mas separando por "ponto". Assim: `media.laboratorio`.
-
+   (iii) Separando por *ponto*. Por fim, você pode usar a mesma ideia do item (ii), mas separando por "ponto". Assim: `media.laboratorio`. Esta última, o `R` usa em suas funções dos pacotes básicos.
 
 Qualquer dessas três formas são aceitáveis.
 Você pode saber mais sobre essas e outras boas práticas com códigos aqui:
@@ -282,7 +283,7 @@ Você pode saber mais sobre essas e outras boas práticas com códigos aqui:
 
 ## Operadores Lógicos
 
-Os seguintes operadores lógicos serão de muita importência na escrita de nossos códigos, em análises futuras:
+Os seguintes operadores lógicos serão de muita importância na escrita de nossos códigos, em análises futuras:
 
 - `a == b`. $a$ é **igual** a $b$;
 - `a != b`. $a$ é **diferente** de $b$;
@@ -293,14 +294,14 @@ Os seguintes operadores lógicos serão de muita importência na escrita de noss
 - `a & b`. Ocorre $a$ **e** $b$ (simultaneamente);
 - `a | b`. Ocorre $a$ **ou** $b$ (união).
 
-Eles retornarão, algum dos seguintes valores lógicos:
+Eles retornarão alguns dos seguintes valores lógicos:
 
 - `TRUE`. Valor lógico *Verdadeiro*;
 - `FALSE`. Valor lógico *Falso*.
 
-Ou relacionarão variáveis num Data Frame (falaremos sobre isso em outra oportunidade).
+Ou relacionará variáveis num *Data Frame* (falaremos sobre isso em outra oportunidade).
 
-Rode os sequintes códigos e veja os resultados
+Rode os seguintes códigos e veja os resultados
 
 ```{r logico-A, exercise=TRUE}
 3 < 7
@@ -322,12 +323,12 @@ Rode os sequintes códigos e veja os resultados
 
 No `R` existem várias estruturas para armazenamento de dados.
 Podemos armazenar em linha, tabela e até em formato espacial.
-Algumas dessas estruturas são dadas abaixo:
+Algumas dessas estruturas são listadas abaixo:
 
 - **Vetores.** Estruturas unidimensionais. Usamos a função *concatenar*, `c()`, para criar um vetor. **Obs.:** Num vetor, seus elementos devem ser todos do mesmo tipo;
 - **Matrizes.** Estruturas de dados bidimensionais. Usamos o comando `matrix(x, nrow = m, ncol = n )`.
-- **Listas.** Estrutura mais gerais de armazenamento. Em uma *lista*__* pode contér um vetor, uma matriz, um data frame ou, até mesmo, outras listas! Usamos o comando `list(var1 = ..., var2 = ..., ...)`
-- **Data Frames.** É um caso especial de *lista*. "Data Frame" significa "quadro de dados", ou seja, a ideia é de uma tabela em que as linhas representam observações e as diferentes variáveis defnem as colunas. Usamos o comando `data.frame(var1 = ..., var2 = ..., ...)`. **Obs.:** Num Data Frame, o número de linhas deve ser o mesmo em cada variável (coluna). 
+- **Listas.** Estrutura mais gerais de armazenamento. Em uma *lista*__* pode conter um vetor, uma matriz, um data frame ou, até mesmo, outras listas! Usamos o comando `list(var1 = ..., var2 = ..., ...)`
+- **Data Frames.** É um caso especial de *lista*. "Data Frame" significa "quadro de dados", ou seja, a ideia é de uma tabela em que as linhas representam observações e as diferentes variáveis definem as colunas. Usamos o comando `data.frame(var1 = ..., var2 = ..., ...)`. **Obs.:** Num Data Frame, o número de linhas deve ser o mesmo em cada variável (coluna). 
 
 Vamos conhecer cada um deles, rapidamente.
 
@@ -337,9 +338,9 @@ Vamos conhecer cada um deles, rapidamente.
 Suponha que se queira construir um conjunto de dados ordenados como, por exemplo, os dias da semana.
 Certamente, vamos usar as iniciais: "dom", "seg", "ter", ...
 
-Fazemos isso, concatenando esses elementos assim:
+Fazemos isso concatenando esses elementos assim:
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo=TRUE, eval=FALSE}
 dias_semana <- c("dom", "seg", "ter", "qua", "qui", "sex", "sab")
 ```
 
@@ -366,12 +367,12 @@ dias_semana[7]
 Suponha que em uma turma de estatística, com dez alunos, obteve-se as seguintes notas em uma avaliação: 2.5, 8.6, 1.9, 4.5, 7.8, 7.7, 5.1, 2.7, 4.1 e 3.7.
 Vamos construir um vetor com esses dados: 
 
-```{r}
+```{r, echo=TRUE}
 medias <- c(2.5, 8.6, 1.9, 4.5, 7.8, 7.7, 5.1, 2.7, 4.1, 3.7)
 ```
 
 Se eu quisesse somar todos esses números?
-Bom aí usaríamos a função `sum()`, do `R`.
+Bom ... usaríamos a função `sum()`, do `R`.
 É bem simples, faríamos assim (rode o código):
 
 ```{r exercicio-soma, exercise=TRUE}
@@ -392,7 +393,7 @@ Daí, $m=4.86$.
 
 Isso é o que chamados de **média aritmética**, ou seja, é um número que substitui um conjunto de outros números, mantendo a soma total dos originais.
 
-Poderíamos ter feito: `m <- sum(medias)/10`, para descobrirmos esse valor, mas no `R`, existe uma função específica para isso: é a `mean()`.
+Poderíamos ter feito: `m <- sum(medias)/10`, para descobrirmos esse valor; mas, no `R`, existe uma função específica para isso: `mean()`.
 
 Assim, se fizermos `mean(medias)` encontraríamos a média desses valores.
 Faça isso no código a seguir:
@@ -406,21 +407,21 @@ m
 #### **Mediana**
 Nem sempre a média aritmética representa fielmente um conjunto de valores numéricos.
 Por exemplo, suponha um conjunto de números que representa o salário de 20 integrantes de certa fábrica.
-Desses 20 integrantes, 2 são sócios e ganham, cada um, R$ 120000,00.
-Os outros 18 funcionários são empregados dos 2 citados e ganham, cada um R$ 1200,00.
+Desses 20 integrantes, 2 são sócios e ganham, cada um, R$ 120.000,00.
+Os outros 18 funcionários são empregados dos dois citados e ganham, cada um R$ 1.200,00.
 
 A média salarial dessa empresa seria de $\text{R}\$\;13080,00$.
 Esse é um bom número para representar esses dados?
-Nossa intuição parece dizer que não, né?
+Nossa intuição parece dizer que não, concorda?
 De fato, os sócios não deveriam entrar na média salarial, visto que são exceções.
 
 Uma medida que representaria melhor esses dados é a **mediana**.
 Pois, ela não é influenciada por valores discrepantes (altos ou baixos), isso porque, primeiro ordena o conjunto de dados e depois seleciona o termo central.
 
-No caso de nosso exemplo, primeiro deveríamos ordenar os salários (o que é fácil, visto que são 18 iguais a 1200 e outros 2 iguais a 120000):
+No caso de nosso exemplo, primeiro deveríamos ordenar os salários (o que é fácil, visto que são 18 iguais a 1.200 e outros 2 iguais a 120.000):
 
 $$ \underbrace{12000, 1200, \ldots , 1200}_{18\text{ vezes}}, 120000, 120000 $$
-Ora, como 20 é par, não há um termo central real, mas teórico, a saber o termo 
+Ora, como 20 é par, não há um termo central real; mas, teórico, a saber, o termo 
 na posição $10.5$ ($\frac{20 + 1}{2}$). 
 O número que estaria nesse termo central é, convencionalmente, calculado como a média aritmética do 10º e do 11º termo.
 Ou seja, $\frac{1200 + 1200}{2} = 1200$.
@@ -433,10 +434,10 @@ De uma forma geral, em um conjunto de $n$ elementos, $x_1, x_2, \ldots, x_n$, or
 
 No `R` a função que calcula a mediana é `median()`.
 
-Como faríamos o cálculo da mediana para esse conjunto de dados?
-Será que precisaríamos escrever 18 itens iguais a 1200?
+Como representaríamos esse conjunto de dados para calcularmos a mediana? 
+Será que precisaríamos escrever, pelo menos, 18 itens iguais a 1200?
 
-Certamente não ...
+Certamente não!
 Existem funções específicas no `R` para isso.
 
 ### Mais sobre Vetores
@@ -444,7 +445,7 @@ Existem funções específicas no `R` para isso.
 Vimos que função `c()` gera vetores em `R`.
 Há ainda mais três formas de se fazer isso:
 
-- `a:b`. Produz uma sequência de numeros de $a$ até $b$, sendo a diferença entre eles de uma unidade. Assim, `1:20` produz a sequência $1, 2, 3, \ldots, 19, 20$.
+- `a:b`. Produz uma sequência de números de $a$ até $b$, sendo a diferença entre eles de uma unidade. Assim, `1:20` produz a sequência $1, 2, 3, \ldots, 19, 20$.
 - `seq(a, b, by = k)`. Também produz uma sequência de $a$ até $b$, mas no parâmetro "by", você pode colocar o "espaçamento que quiser", por exemplo, o comando `seq(0, 1, 0.1)` produz 11 números de $0.0$ até $1.0$, indo de $0.1$ a $0.1$.
 - `rep(a, n)`. Repete o número $a$, $n$ vezes. Existem outros parâmetros para essa função, mas usaremos apenas esse, inicialmente. Assim, se escrevo `rep(1200, 18)` obtenho uma sequência de 18 números iguais a 1200.
 
@@ -487,7 +488,7 @@ Voltando ao exemplo da mediana ...
 Precisamos ordenar os 20 números: 1200 repetidos 18 vezes; e, 120000 repetidos 2 vezes.
 Ora, para gerar tais repetições, usamos a função `rep()` da seguinte maneira:
 `rep(1200, 18)` e `rep(120000, 2)`.
-Como queremos um conjunto de dados estruturados, vamos criar um vetor com esses números assim: `c(rep(1200, 18), rep(120000, 2))`.
+Como queremos um conjunto de dados estruturados, vamos criar um vetor com esses números, assim: `c(rep(1200, 18), rep(120000, 2))`.
 Vamos dar um nome para esse vetor: 
 
 ```{r, echo=TRUE, eval=FALSE}
@@ -502,13 +503,13 @@ salarios <- c(rep(1200, 18), rep(120000, 2))
 median(salarios)
 ```
 
-Note que o valor de $R\$\, 1200,00$ é mais representativo para esse conjunto de dados do que a média aritmética de $\text{R}\$\;13080,00$.
+Note que o valor de $R\$\, 1.200,00$ é mais representativo para esse conjunto de dados do que a média aritmética de $\text{R}\$\;13.080,00$.
 
 ## Matrizes
 
 Para estruturarmos os dados no formato de uma matriz, usamos o comando `matrix( x, nrow = m, ncol = n)`.
 
-Assim, suponha que você tenha uma sequência de 16 elementos que você quer estruturá-los numa matriz de ordem 4, ou seja, 4 linhas e 4 colunas.
+Assim, suponha que você tenha uma sequência de 16 elementos os quais quer estruturá-los numa matriz de ordem 4, ou seja, 4 linhas e 4 colunas.
 Vamos criar esses números, por exemplo, com `x <- 1:16`. 
 Portanto, a matriz é dada por `matrix(x, 4, 4)`. 
 Rode o código abaixo e perceba os detalhes:
@@ -519,7 +520,7 @@ matrix(x, 4, 4)
 ```
 
 Você deve ter percebido que os números foram dispostos no sentido das colunas.
-Caso queira que sejam dispostos por coluna, acrescente o parâmetro: `byrow = TRUE`.
+Caso queira que sejam dispostos por linha, acrescente o parâmetro: `byrow = TRUE`.
 
 ```{r exerc-matriz-linha, exercise=TRUE}
 x <- 1:16
@@ -530,7 +531,7 @@ Para selecionar os elementos de matriz uma matriz "M" , podemos usar:
 
 - `M[l, ]`. Seleciona a linha "l" da matriz;
 - `M[ , c]`. Seleciona a coluna "c" da matriz;
-- `M[l, c]`. Seleciona o elemento que se encontra na linha "l" e na coluna "c".
+- `M[l, c]`. Seleciona o elemento que se encontra na linha "`l`" e na coluna "`c`".
 
 Faça os testes com a matriz que construímos anteriormente:
 
@@ -545,12 +546,12 @@ Poderíamos falar sobre operações entre matrizes, mas não será objetivo de n
 
 ## Listas
 
-As listas são estruturações mais gerais do `R`, pois pode conter outras estruturas já vistas, bem como outra lista!!
+As listas são estruturações mais gerais do `R`, pois pode conter outras estruturas já vistas, bem como outras listas!!
 
 O comando para criar uma lista é `list()`.
 
 Suponha que você esteja relacionando os dias das semanas com a média de precipitação (mm).
-Vamos chamas essas medições de `medidas_chuva`. Criamos a lista assim:
+Vamos chamar essas medições de `medidas_chuva`. Criamos a lista assim:
 
 ```{r, echo=TRUE, eval=FALSE}
 medidas_chuva <- list(
@@ -584,15 +585,16 @@ Vamos denominar esse vetor de `medida_barra` (em mm).
 Assim, `medida_barra <- c(12.01, 10.45, 11.22, 10.59)`
 
 E, por fim, você estrutura um conjunto de dados com 34 observações em uma tabela $17\times 2$.
-Ou seja, sendo as observações dadas por `obs <- c(0.4, 1.6, 1.3, 1.4, 0.6, 1.3, 0.7, 0.3, 1.3, 1.7, 0.9, 0.7, 1.6, 1.6, -0.5, 1.2, 1.1, 1.3, 1.0, 1.9, 0.9, 1.2, 1.5, 0.9, 0.9, 1.7, 0.8, 0.5, -0.2, 1.3, 1.0, 1.1, 0.7, 1.6)`, a matrix é dada por  `dados_tabela <- matrix(obs, 17, 2)`.
+Ou seja, sendo as observações dadas por `obs <- c(0.4, 1.6, 1.3, 1.4, 0.6, 1.3, 0.7, 0.3, 1.3, 1.7, 0.9, 0.7, 1.6, 1.6, -0.5, 1.2, 1.1, 1.3, 1.0, 1.9, 0.9, 1.2, 1.5, 0.9, 0.9, 1.7, 0.8, 0.5, -0.2, 1.3, 1.0, 1.1, 0.7, 1.6)`, a matriz é dada por  `dados_tabela <- matrix(obs, 17, 2)`.
 
-Bom, toda essa *estória* inventada é para que a mágia acontecesse: vamos criar uma lista que junte todas essas observações!!
+Bom, toda essa *estória* inventada é para que a mágica acontecesse: vamos criar uma lista que junte todas essas observações!!
 Vamos denominá-la po `nave_mae`.
 
 Fica assim:
 
 ```{r, echo=TRUE, eval=FALSE}
 nave_mae <- list(medidas_chuva, temperatura, medida_barra, dados_tabela)
+nave_mae
 ```
 
 Obviamente, os "comprimentos" dos dados de um lista são bem variados.
@@ -602,19 +604,20 @@ Essas listas são denominadas **Data Frames**.
 
 ## Data Frame
 
-Vamos nos deparar com diversos Data Frames, veremos que haverá uma diferença entre como os humanos enxergam os dados; e, como os computadores leem esses mesmos dados.
+Vamos nos deparar com diversos *Data Frames*; e, veremos que há uma diferença entre como os humanos enxergam os dados; e, como os computadores leem esses mesmos dados.
 Essa diferença é crucial para processamento dos dados no computador.
-Organizaremos, então, os Data Frames no formato **Tidy**.
+Portanto, organizaremos *Data Frames* num formato especial: **Tidy**.
 
-Antes, porém, vamos conhecer um pouco sobre os Data Frames.
+Antes, porém, vamos conhecer um pouco sobre os *Data Frames*.
 
-Para construírmos um Data Frame, usamos o comando `data.frame(var1, var2, ...)`, onde "var1", etc. são as variáveis.
+Para construírmos um *Data Frame*, usamos o comando `data.frame(var1, var2, ...)`, onde "var1", etc. são as variáveis.
 Cada coluna representa uma variável e cada linha uma observação.
 
 Imagine que um professor de Estatística, organizou as médias de uma certa classe, durante alguns semestres.
 Os semestres foram "2014.1", "2014.2", "2015.1", "2015.2", "2016.1" e "2016.2".
 
-Vamos denominar esse data frame por `df_medias`, assim, podemos fazer:
+Vamos denominar esse data frame por `df_medias`. 
+Assim, podemos fazer:
 
 ```{r df-medias, exercise=TRUE, exercise.lines=7}
 df_medias <- data.frame(
@@ -626,7 +629,7 @@ df_medias
 
 Faça o teste no bloco de código acima, selecionando a variável `medias`.
 
-É possível calcularmos a média aritmética da  varivável "médias" desse data frame.
+É possível calcularmos a média aritmética da  varivável `medias`, desse data frame.
 Para isso, basta fazermos `mean(df_medias$medias)`.
 Teste isso no bloco de código abaixo:
 
@@ -641,8 +644,8 @@ mean(df_medias$medias)
 Uma forma de visualizar um data frame, como uma planilha, é usar a função `View()` (note que o "V" é maiúsculo). 
 Usaremos muitas vezes essa função!
 
-Não é difício perceber que um data frame pode ser visto como uma matriz, em certo sentido.
-Tanto que os comando de seleção de elementos, linhas ou colunas, podem ser usados num Data Frame.
+Não é difícil perceber que um *data frame* pode ser visto como uma matriz, em certo sentido.
+Tanto que os comando de seleção de elementos, linhas ou colunas, daquele; podem ser usados num *Data Frame*.
 Da mesma forma, os comandos de uma lista.
 
 Quando o Data Frame possui muitas linhas, e queremos visualizar as primeiras, apenas para entender um pouco do mesmo, podemos usar `head()`.
@@ -667,7 +670,7 @@ Especificamente, no exemplo, criamos 1000 elementos, centrados na média 100 com
 Não se preocupe que ainda veremos o que é um *desvio padrão* (standard deviation
 ) ! =)
 
-Caso queira conhecer o tipo de dados, de forma mais direta num Data Frame, você pode usar a função `str()` (structure).
+Caso queira conhecer o tipo de dados de forma mais direta num Data Frame, você pode usar a função `str()` (structure).
 
 ```{r df-str, exercise=TRUE}
 df_grande <- data.frame(
@@ -700,7 +703,7 @@ summary(df_grande)
 
 *Bind*, em Inglês, significa "ligar", "juntar", etc.
 Muitas vezes precisamos unir Data Frames em formas convenientes.
-Algumas mais simples: quando o número de linhas e colubas coincidem; outras, nem tanto: número de linhas ou colunas diferentes.
+Algumas mais simples: quando o número de linhas e colunas coincidem; outras, nem tanto: número de linhas ou colunas diferentes.
 
 Podemos unir Data Frames por coluna ( *column*, em inglês; e, de onde vem a primeira letra do comando `cbind()`) ou por linhas (*row*, em inglês; e, de onde vem a primeira letra do comando `rbind()`).
 
@@ -751,7 +754,7 @@ Vamos fazer um exemplo com `cbind()` e `rbind()` que unem data frames com compri
 Para isso, vamos usar uma tática bem perspicaz  de organizar os dados.
 
 Suponha, novamente, que certo professor de estatística organizou as médias de seus estudantes por semestres ("A", "B" e "C").
-No semestre "A" haviam 20 estudantes, portanto 20 notas; no semestre "B", 10; e, no semestre "C", 15 notas.
+No semestre "A" existiam 20 estudantes, portanto 20 notas; no semestre "B", 10; e, no semestre "C", 15 notas.
 
 Semestre A:
 
@@ -780,10 +783,10 @@ Como unir esses data frames?
 Primeiro você deve perceber as **verdadeiras variáveis** envolvidas!
 Sim, por mais que "A", "B" e "C" sejam variáveis, a ideia em cada um dos data frames expostos é relacionar SEMESTRE com NOTA. 
 Essas são as variáveis fundamentais.
-Vamos construir um novo data frame que possua como colunas (variáveis) essas duas variáveis.
+Vamos construir um novo data frame que possua como **colunas** essas duas variáveis.
 
 Mas, para isso, precisamos fazer modificações nos data frames originais.
-Por exemplo, no primeiro data frame, `semestre_A`, quero transformá-lo num outros data frame com as variáveis SEMESTRE e NOTA. 
+Por exemplo, no primeiro data frame, `semestre_A`, queremos transformá-lo num outro data frame com as variáveis SEMESTRE e NOTA. 
 Ora, para isso, basta correlacionar cada nota com o semestre A, ou seja, deve haver uma repetição de 20 "A" em uma coluna e, na outra, as respectivas médias.
 Como já sabemos fazer uma repetição no `R` usando a função `rep()`, podemos escrever:
 
@@ -853,7 +856,7 @@ Veremos um pacote, mais atual, que nos dará suporte para ler várias dessas ext
 
 Mas, o `R` base possui algumas funções que fazem um bom trabalho para arquivos [`.csv`](https://pt.wikipedia.org/wiki/Comma-separated_values) (*comma-separated values* = valores separados por vírgulas).
 Uma delas é a `read.csv()`.
-Ao longo do curso teremos oportunidades de testar essa e outras funções
+Ao longo do curso teremos oportunidades de testar essa e outras funções.
 
 Por hora, seria ideal um dataset que já venha incluído no próprio `R`.
 E, isso realmente existe.
@@ -871,7 +874,7 @@ Nos exemplos que seguem, vamos priorizar os Data Frames.
 
 Vamos analisar o dataset `Orange` (note o "O" maiúsculo: o `R` é *case sensitive*, ou seja, ele é sensível à escreita das letras maiúsculas. Então, escrever "Orange" é completamente diferente de escrever "orange").
 
-Para isso, basta digitar `Orange` e dar enter. Veja o dataset abaixo:
+Para isso, basta digitar `Orange` e rodar o código. Veja o dataset abaixo:
 
 ```{r print-orange, exercise=TRUE, exercise.eval=TRUE}
 Orange
@@ -884,7 +887,7 @@ head(Orange)
 ```
 
 Percebemos que há 3 variáveis: *Tree* (árvore), *age* (idade) e *circunference* (circunferência).
-Notamos, também, que as árvores estão agruadas de alguma forma: "1", "2", etc.
+Notamos, também, que as árvores estão agrupadas de alguma forma: "1", "2", etc.
 
 Se quisermos mais informações, podemos usar a função `str()`:
 
@@ -932,7 +935,7 @@ plot(Orange$circumference, Orange$age)
 Percebemos que parece haver uma correlação positiva entre a medida da circunferência e a idade, ou seja, quanto é a circunferência da árvore, maior a idade.
 
 Agora, convenhamos ...
-Tais gráficos não estão nada agradáveis esteticamente!
+Tais gráficos não estão nada agradáveis (esteticamente falando)!
 Existem pacotes específicos para isso e que usaremos muito nas próximas semanas!
 
 Caso você queirea saber mais sobre esse data frame, pode digitar `?Orange`.
